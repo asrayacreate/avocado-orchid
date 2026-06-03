@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocado & Orchid Resort - Hetauda</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Urbanist', sans-serif; scroll-behavior: smooth; }
+        .ken-burns { animation: kenburns 6s ease-out infinite alternate; }
+        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div id="admin-toast" class="fixed top-5 right-5 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl z-50 transform translate-x-96 transition-transform duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-msg">Action Successful</span>
+    </div>
+
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-40">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">A</div>
+                <div>
+                    <span class="font-bold text-lg block tracking-tight text-stone-900 leading-none">AVOCADO & ORCHID</span>
+                    <span class="text-xs uppercase tracking-widest text-emerald-700 font-semibold">Resort - Hetauda</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-medium text-stone-600">
+                <a href="#home" class="hover:text-emerald-700 transition" data-i18n="navHome">Home</a>
+                <a href="#rooms" class="hover:text-emerald-700 transition" data-i18n="navRooms">Rooms</a>
+                <a href="#dining" class="hover:text-emerald-700 transition" data-i18n="navDining">Dining</a>
+                <a href="#whyus" class="hover:text-emerald-700 transition" data-i18n="navWhy">Why Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 border border-stone-200 px-3 py-1.5 rounded-full text-sm font-semibold hover:bg-stone-50 transition cursor-pointer">
+                    <i class="fa-solid fa-globe text-emerald-700"></i>
+                    <span id="lang-btn-text">नेपा</span>
+                </button>
+                <a href="#rooms" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition" data-i18n="bookNow">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main-public-view" class="pt-20">
+        <section id="home" class="relative h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 text-white">
+            <div class="absolute inset-0 z-0">
+                <img id="hero-bg" class="w-full h-full object-cover opacity-60 ken-burns" src="http://googleusercontent.com/image_collection/image_retrieval/15539164352191965723" alt="Resort Background">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-stone-950/40"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+                <span class="text-emerald-300 uppercase tracking-widest font-bold text-xs sm:text-sm block mb-3" data-i18n="heroTag">NEPAL'S ONLY AVOCADO & ORCHID RESORT</span>
+                <h1 class="text-4xl sm:text-6xl font-bold tracking-tight mb-6" data-i18n="heroTitle">Where Nature Meets Luxury</h1>
+                <p class="text-lg sm:text-xl text-stone-200 mb-8 max-w-2xl mx-auto font-light" data-i18n="heroSub">Nestled in the heart of Hetauda, surrounded by lush orchards and exotic orchid gardens.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#rooms" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-bold shadow-lg transition" data-i18n="bookYourStay">Book Your Stay</a>
+                    <button onclick="simulateSecretShortcut()" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur px-8 py-3.5 rounded-full font-bold transition flex items-center gap-2">
+                        <i class="fa-solid fa-lock text-emerald-300"></i> <span data-i18n="adminBtn">Staff Login</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="rooms" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-emerald-700 uppercase tracking-widest font-bold text-xs block mb-2" data-i18n="roomTag">OUR ACCOMMODATIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight" data-i18n="roomTitle">Rooms & Suites Designed For Comfort</h2>
+            </div>
+
+            <div class="grid grid-cols-1 gap-12">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100 grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-7 relative bg-stone-900 min-h-[350px]">
+                        <img id="deluxe-media-frame" class="w-full h-full object-cover absolute inset-0 transition-opacity duration-300" src="http://googleusercontent.com/image_collection/image_retrieval/15539164352191965723" alt="Deluxe Room View">
+                        <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur border border-white/10 rounded-xl p-1.5 flex gap-2 justify-between text-white text-xs z-10">
+                            <button onclick="switchRoomMedia('deluxe', 'room', this)" class="flex-1 bg-white/20 px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition cursor-pointer"><i class="fa-solid fa-bed"></i> <span data-i18n="tabRoom">Room</span></button>
+                            <button onclick="switchRoomMedia('deluxe', 'bath', this)" class="flex-1 hover:bg-white/10 px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition cursor-pointer"><i class="fa-solid fa-shower"></i> <span data-i18n="tabBath">Bathroom</span></button>
+                            <button onclick="switchRoomMedia('deluxe', 'amenity', this)" class="flex-1 hover:bg-white/10 px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition cursor-pointer"><i class="fa-solid fa-star"></i> <span data-i18n="tabAmenity">Amenities</span></button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-stone-900">Deluxe A/C Room</h3>
+                                <div class="text-right">
+                                    <span class="text-sm text-stone-400 block" data-i18n="from">From</span>
+                                    <span class="text-xl font-bold text-emerald-700">NPR 3,500</span> <span class="text-xs text-stone-500" data-i18n="perNight">/night</span>
+                                </div>
+                            </div>
+                            <p class="text-stone-600 text-sm mb-6" data-i18n="deluxeDesc">Comfortable luxury room equipped with premier wood-crafted setups and garden views.</p>
+                        </div>
+                        <button onclick="alert('Proceeding to Booking')" class="w-full bg-stone-900 hover:bg-stone-800 text-white py-3.5 rounded-xl font-bold text-sm transition" data-i18n="bookNow">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="whyus" class="py-20 bg-stone-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-12" data-i18n="whyTitle">Unmatched Experiences in Hetauda</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <i class="fa-solid fa-seedling text-3xl text-emerald-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="w1">Unique Orchid Garden</h3>
+                        <p class="text-stone-400 text-sm" data-i18n="w1d">Hosting over 80+ rare exotic orchid collections.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <i class="fa-solid fa-lemon text-3xl text-emerald-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="w2">Fresh Avocado Orchard</h3>
+                        <p class="text-stone-400 text-sm" data-i18n="w2d">Fresh organic avocados served right from the orchard trees.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <i class="fa-solid fa-shield-halved text-3xl text-emerald-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="w3">24/7 Shield Security</h3>
+                        <p class="text-stone-400 text-sm" data-i18n="w3d">Equipped completely with secure compound guards and multi-zone CCTV.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SUPER ADMIN DASHBOARD PANEL -->
+    <div id="super-admin-panel" class="hidden min-h-screen bg-stone-950 text-stone-100 flex">
+        <aside class="w-64 bg-stone-900 border-r border-stone-800 flex flex-col justify-between p-6">
+            <div>
+                <div class="flex items-center gap-2 mb-8">
+                    <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-stone-950 font-bold"><i class="fa-solid fa-user-shield"></i></div>
+                    <span class="font-bold text-sm tracking-wide">SUPER ADMIN</span>
+                </div>
+                <nav class="space-y-1" id="admin-menu-list"></nav>
+            </div>
+            <button onclick="exitAdminMode()" class="w-full bg-stone-800 hover:bg-stone-700 text-stone-300 py-2 rounded-xl text-xs font-semibold transition cursor-pointer">
+                <i class="fa-solid fa-right-from-bracket mr-2"></i> Exit Dashboard
+            </button>
+        </aside>
+
+        <main class="flex-1 p-10 bg-stone-950 overflow-y-auto h-screen">
+            <div class="flex items-center justify-between mb-8 pb-5 border-b border-stone-800">
+                <div>
+                    <h1 id="admin-active-title" class="text-2xl font-bold text-white">Dashboard Overview</h1>
+                    <p id="admin-active-subtitle" class="text-xs text-stone-400">Live operational hotel health matrices.</p>
+                </div>
+            </div>
+            <div id="admin-panel-content-area" class="w-full"></div>
+        </main>
+    </div>
+
+    <!-- SECRET SECURITY AUTH GATEWAY MODAL (5 + CTRL+SHIFT+A) -->
+    <div id="secret-auth-modal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-stone-900 border border-stone-800 w-full max-w-md rounded-2xl p-8 transform scale-95 transition-all duration-300">
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-xl mb-3"><i class="fa-solid fa-vault"></i></div>
+                <h3 class="text-xl font-bold text-white">Super Admin Access Portal</h3>
+            </div>
+            <div id="auth-screen-1" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-stone-400 mb-2">Admin Email</label>
+                    <input type="email" id="auth-email" value="admin@avocadoresort.com" class="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white">
+                </div>
+                <button onclick="handleAuthNext()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm cursor-pointer">Continue</button>
+            </div>
+            <div id="auth-screen-2" class="hidden space-y-6">
+                <div class="text-center">
+                    <p class="text-xs text-stone-300 mb-4">Enter Bypass Verification Code</p>
+                    <input type="text" id="auth-otp" placeholder="123456" class="w-32 bg-stone-950 border border-stone-800 rounded-xl text-center text-xl font-bold text-emerald-400 py-2 focus:outline-none">
+                </div>
+                <button onclick="handleAuthVerify()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm cursor-pointer">Verify & Launch</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-stone-100 border-t border-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p>&copy; 2026 Hotel Avocado & Orchid Resort. All Rights Reserved.</p>
+        <button onclick="simulateSecretShortcut()" class="text-xs text-stone-400 hover:text-emerald-700 font-bold mt-2 cursor-pointer"><i class="fa-solid fa-user-lock mr-1"></i> Staff Access</button>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                navHome: "Home", navRooms: "Rooms", navDining: "Dining", navWhy: "Why Us", bookNow: "Book Now",
+                heroTag: "NEPAL'S ONLY AVOCADO & ORCHID RESORT", heroTitle: "Where Nature Meets Luxury",
+                roomTag: "OUR ACCOMMODATIONS", roomTitle: "Rooms & Suites Designed For Comfort",
+                whyTitle: "Unmatched Experiences in Hetauda", w1: "Unique Orchid Garden", w2: "Fresh Avocado Orchard", w3: "24/7 Shield Security"
+            },
+            np: {
+                navHome: "गृहपृष्ठ", navRooms: "कोठाहरू", navDining: "भोजन", navWhy: "हाम्रो बारेमा", bookNow: "बुक गर्नुहोस्",
+                heroTag: "नेपालको एकमात्र एभोकाडो र ओर्किड रिसोर्ट", heroTitle: "जहाँ प्रकृति र भव्यता भेटिन्छ",
+                roomTag: "हाम्रा कोठाहरू", roomTitle: "आरामका लागि डिजाइन गरिएका कोठाहरू",
+                whyTitle: "हेटौंडामा उत्कृष्ट सेवा", w1: "दुर्लभ ओर्किड बगैंचा", w2: "ताजा एभोकाडो बगैंचा", w3: "२४सै घण्टा सुरक्षा"
+            }
+        };
+
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'np' : 'en';
+            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? 'नेपा' : 'ENG';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) el.innerText = translations[currentLang][key];
+            });
+        }
+
+        function switchRoomMedia(roomKey, tabKey, btn) {
+            btn.parentNode.querySelectorAll('button').forEach(b => b.classList.remove('bg-white/20'));
+            btn.classList.add('bg-white/20');
+            launchToast("Switching room view...");
+        }
+
+        function launchToast(msg) {
+            const t = document.getElementById('admin-toast');
+            document.getElementById('toast-msg').innerText = msg;
+            t.classList.remove('translate-x-96');
+            setTimeout(() => t.classList.add('translate-x-96'), 3000);
+        }
+
+        let keysPressed = {};
+        window.addEventListener('keydown', (e) => {
+            keysPressed[e.key] = true;
+            if (keysPressed['5'] && keysPressed['Control'] && keysPressed['Shift'] && (keysPressed['A'] || keysPressed['a'])) {
+                e.preventDefault(); simulateSecretShortcut();
+            }
+        });
+        window.addEventListener('keyup', (e) => { keysPressed[e.key] = false; });
+
+        function simulateSecretShortcut() {
+            const m = document.getElementById('secret-auth-modal');
+            m.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function handleAuthNext() {
+            document.getElementById('auth-screen-1').classList.add('hidden');
+            document.getElementById('auth-screen-2').classList.remove('hidden');
+        }
+
+        function handleAuthVerify() {
+            const otp = document.getElementById('auth-otp').value;
+            if(otp === '123456') {
+                document.getElementById('secret-auth-modal').classList.add('opacity-0', 'pointer-events-none');
+                document.getElementById('main-public-view').classList.add('hidden');
+                document.querySelector('nav').classList.add('hidden');
+                document.getElementById('super-admin-panel').classList.remove('hidden');
+                buildAdminSidebar(); loadAdminModule('dashboard');
+            } else { alert("Wrong OTP!"); }
+        }
+
+        function exitAdminMode() {
+            document.getElementById('super-admin-panel').classList.add('hidden');
+            document.getElementById('main-public-view').classList.remove('hidden');
+            document.querySelector('nav').classList.remove('hidden');
+        }
+
+        const adminModules = [
+            { id: 'dashboard', name: 'Dashboard & Analytics', icon: 'fa-chart-line' },
+            { id: 'calendar', name: 'Multi-Calendar Grid', icon: 'fa-calendar-days' },
+            { id: 'rooms', name: 'Room & Pricing', icon: 'fa-door-open' },
+            { id: 'housekeeping', name: 'Housekeeping Board', icon: 'fa-broom' },
+            { id: 'accounting', name: 'Accounting Engine', icon: 'fa-money-check-dollar' },
+            { id: 'vat', name: 'VAT & GST Ledger', icon: 'fa-calculator' },
+            { id: 'staff', name: 'Staff Rosters', icon: 'fa-users-gear' },
+            { id: 'tasks', name: 'Kanban Task Manager', icon: 'fa-list-check' },
+            { id: 'inbox', name: 'Unified Guest Inbox', icon: 'fa-comments' },
+            { id: 'coupons', name: 'Promo & Coupons', icon: 'fa-ticket' },
+            { id: 'banners', name: 'Banner Settings', icon: 'fa-image' },
+            { id: 'reports', name: 'Reports Downloader', icon: 'fa-cloud-arrow-down' },
+            { id: 'settings', name: 'Global Hotel Settings', icon: 'fa-gears' }
+        ];
+
+        function buildAdminSidebar() {
+            const container = document.getElementById('admin-menu-list');
+            container.innerHTML = '';
+            adminModules.forEach(m => {
+                container.innerHTML += `<button onclick="loadAdminModule('${m.id}')" class="w-full text-left px-4 py-2.5 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl text-xs flex items-center gap-3 font-semibold cursor-pointer"><i class="fa-solid ${m.icon} w-4 text-center text-stone-500"></i>${m.name}</button>`;
+            });
+        }
+
+        function loadAdminModule(id) {
+            const target = adminModules.find(m => m.id === id);
+            document.getElementById('admin-active-title').innerText = target.name;
+            document.getElementById('admin-panel-content-area').innerHTML = `<div class="bg-stone-900 border border-stone-800 rounded-2xl p-8 text-center text-sm text-stone-400">${target.name} Operational Module Connected & Active.</div>`;
+        }
+    </script>
+</body>
+</html>
